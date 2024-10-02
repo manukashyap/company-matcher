@@ -7,3 +7,4 @@
 
 # Data folder for intermediate testing
 src/main/data
+/src/main/my_vectordb
