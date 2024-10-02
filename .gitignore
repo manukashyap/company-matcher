@@ -3,3 +3,4 @@
 
 # DS_Store (Mac folder)
 .DS_Store
+*__pycache__*
