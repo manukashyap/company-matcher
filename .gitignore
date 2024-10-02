@@ -4,3 +4,6 @@
 # DS_Store (Mac folder)
 .DS_Store
 *__pycache__*
+
+# Data folder for intermediate testing
+src/main/data

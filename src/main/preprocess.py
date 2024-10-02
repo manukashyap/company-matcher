@@ -25,6 +25,7 @@ def preprocess_website(website):
 
     website = website.strip()  # Remove extra whitespace
     website = ensure_http_scheme(website)  # Ensure the URL starts with http/https
+    website = website.replace('.com', '')
 
     return extract_domain_from_url(website)
 
@@ -66,7 +67,7 @@ def preprocess_country(country):
     """Clean and standardize country names."""
     if pd.isna(country):
         return 'Unknown'  # Fill missing country with 'Unknown'
-    return country.strip()
+    return country.lower().strip()
 
 def preprocess_domain(domain, website):
     if pd.isna(domain) or domain == '':
@@ -97,6 +98,6 @@ def apply_preprocessing(df1: DataFrame, df2: DataFrame):
 
 def save_data_sample_csv(df1: DataFrame, df2: DataFrame):
     # Save the cleaned data back to CSV files
-    df1.sample(50).to_csv('preprocessed_dataset1.csv', index=False)
-    df2.sample(50).to_csv('preprocessed_dataset2.csv', index=False)
+    df1.sample(50).to_csv('data/preprocessed_dataset_large.csv', index=False)
+    df2.sample(50).to_csv('data/preprocessed_dataset_small.csv', index=False)
     print("Preprocessing complete. Cleaned datasets saved as CSV files.")
